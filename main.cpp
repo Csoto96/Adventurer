@@ -1,9 +1,10 @@
 #include <iostream>
-
-
+#include "header.h"
+using namespace std;
 int main()
 {
-    std::cout << "file to run game"<< std::endl;
-
+    cout << "Hello from me" << endl;
+    display();
+    cout << "file to run game"<< endl;
     return 0;
 }
