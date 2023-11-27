@@ -22,9 +22,9 @@ int main()
                 window.close();
             }
         }
-        window.clear(sf::Color::Black);
+        window.clear();
         // Draw here.
-        window.draw(g1.gob);
+        //window.draw(g1.gob);
         window.display();
     }
     // int turnOrder = 1;
