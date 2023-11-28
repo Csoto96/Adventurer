@@ -10,7 +10,7 @@ class Enemy
     public:
             Enemy();
             //~Enemy();
-            int eAttack();
+            virtual int eAttack();
             bool eHit(int hit);
             void eDam(int damage);
             void eBlock();

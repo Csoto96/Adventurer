@@ -17,6 +17,15 @@ Goblin::Goblin()
     }
     gob.setTexture(idleArt);
     gob.setTextureRect(sf::IntRect(0,0,150,150));
-    //gob.setOrigin(150.f/2.f,150.f/2.f);
+    gob.setOrigin(150.f/2.f,150.f/2.f);
+    gob.setPosition(250,200);
+}
+
+int Goblin::eAttack()
+{
+    Enemy::eAttack();
+    gob.setTexture(attArt);
+    gob.setTextureRect(sf::IntRect(0,0,150,150));
+    gob.setOrigin(150.f/2.f,150.f/2.f);
     gob.setPosition(250,200);
 }
