@@ -8,7 +8,7 @@
 
 int main()
 {
-    Player p2;
+    //Player p2;
     Goblin g1;
     sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
     while(window.isOpen())
@@ -24,7 +24,7 @@ int main()
         }
         window.clear();
         // Draw here.
-        //window.draw(g1.gob);
+        window.draw(g1.gob);
         window.display();
     }
     // int turnOrder = 1;
