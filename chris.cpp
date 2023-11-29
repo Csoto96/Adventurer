@@ -5,14 +5,16 @@
 #include "enemy.h"
 #include "goblin.h"
 #include "interactions.h"
-
+const time_t GLOBAL_TIME = time(nullptr);
 int main()
 {
+    
     //Player p2;
     Goblin g1;
     sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
     while(window.isOpen())
     {
+        std::cout << time(nullptr) - GLOBAL_TIME;
         sf::Event event;
         while(window.pollEvent(event))
         {
