@@ -40,22 +40,12 @@ void attack(Player &player,Enemy &enemy, int turn)
     }
 }
 
-void changeTurn(int &turn)
-{
-    if(turn == 1)
-    {
-        turn = 2;
-    }
-    else
-    {
-        turn = 1;
-    }
-}
-void goblinFight(Player &player, Goblin &goblin , sf::RenderWindow &window)
+void goblinFight(Player &player, Goblin &goblin , Game &game)
 {
     int turnOrder = 1;
     while(player.getPHp() > 0 || goblin.getEHp() > 0)
     {
+        game.events();
         if(turnOrder == 1)
         {
 
@@ -80,6 +70,7 @@ void goblinFight(Player &player, Goblin &goblin , sf::RenderWindow &window)
                 break;
             }
             turnOrder = 1;
+            player.blockCheck();
         }
         
     }

@@ -7,9 +7,10 @@
 #include "player.h"
 #include "enemy.h"
 #include "goblin.h"
+#include "game.h"
 
 void attack(Player &player,Enemy &enemy, int turn);
-void changeTurn(int &turn);
-void goblinFight(Player &player, Goblin &goblin,sf::RenderWindow &window);
+void goblinFight(Player &player, Goblin &goblin,Game &game);
+void startScreen(Player &player, Game &game);
 void superAttack(Player &player, Goblin &goblin);
 #endif

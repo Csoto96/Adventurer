@@ -8,7 +8,7 @@ Player::Player()
     armor = 12;
     blocking = false;
     name = "";
-    if(!pArt.loadFromFile("Game Assets/Sprites/Player/PNG/Idle/idle-with-weapon-1.png"))
+    if(!pArt.loadFromFile("Game Assets/Sprites/New Player Sprite/idle.png"))
     {
         exit(1);
     }
