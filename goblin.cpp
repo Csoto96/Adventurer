@@ -8,6 +8,7 @@ Goblin::Goblin()
     armor = 10;
     blocking = false;
     name = "Goblin";
+    isHurt = false;
     if(!idleArt.loadFromFile("Monsters_Creatures_Fantasy/Goblin/Idle.png") ||
        !attArt.loadFromFile("Monsters_Creatures_Fantasy/Goblin/Attack.png") ||
        !deadArt.loadFromFile("Monsters_Creatures_Fantasy/Goblin/Death.png") ||
@@ -23,9 +24,60 @@ Goblin::Goblin()
 
 int Goblin::eAttack()
 {
-    Enemy::eAttack();
+    int store = Enemy::eAttack();
+    int frameCount = 1;
     gob.setTexture(attArt);
     gob.setTextureRect(sf::IntRect(0,0,150,150));
     gob.setOrigin(150.f/2.f,150.f/2.f);
     gob.setPosition(250,200);
+    while(frameCount < 9)
+    {
+        gob.setTextureRect(sf::IntRect(0+150*frameCount,0+150*frameCount,150,150));
+        frameCount++;
+    }
+    return store;
+}
+int Goblin::makeDecision()
+{
+    int turn = 1 + (rand() % 3);
+    if(turn == 1 || (turn == 3 && isHurt == false))
+    {
+        return 1;
+    }
+    if(turn == 2)
+    {
+        return 2;
+    }
+    if(turn == 3 && isHurt == true)
+    {
+        return 3;
+    }
+
+}
+
+int Goblin::superAtt()
+{
+    int toHit = 3 + (rand() % 20);
+    std::cout << "rolled " << toHit << std::endl;
+    return toHit;
+}
+
+void Goblin::hpCheck()
+{
+    if(hp <= 15)
+    {
+        isHurt = true;
+    }
+    else
+    {
+        isHurt = false;
+    }
+}
+
+void Goblin::blockCheck()
+{
+    if(blocking == true)
+    {
+        blocking = false;
+    }
 }
