@@ -11,7 +11,7 @@ int main()
 {
     
     //Player p2;
-    Game game(1200,600,"Adventurer");
+    //Game game(1200,600,"Adventurer");
     Player p2;
     Goblin g1;
     sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
@@ -30,6 +30,7 @@ int main()
         window.clear();
         // Draw here.
         window.draw(g1.gob);
+        window.draw(p2.p1);
         window.display();
     }
     // int turnOrder = 1;
@@ -45,11 +46,11 @@ int main()
     // changeTurn(turnOrder);//2
     // attack(p2,e2,turnOrder);//2
 
-    int screenEvent = 0;
-    while(game.isRunning())
-    {
-        game.events();
+    // int screenEvent = 0;
+    // while(game.isRunning())
+    // {
+    //     game.events();
 
-    }
+    // }
     return 0;
 }

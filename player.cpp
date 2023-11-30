@@ -8,14 +8,14 @@ Player::Player()
     armor = 12;
     blocking = false;
     name = "";
-    if(!pArt.loadFromFile("Game Assets/Sprites/New Player Sprite/idle.png"))
+    if(!pArt.loadFromFile("Game Assets/Sprites/New Player Sprite/Idle.png"))
     {
         exit(1);
     }
     p1.setTexture(pArt);
     p1.setTextureRect(sf::IntRect(0,0,128,96));
     p1.setOrigin(128.f/2.f,96.f/2.f);
-    p1.setPosition(250,400);
+    p1.setPosition(250,300);
 }
 
 int Player::pAttack()
