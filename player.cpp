@@ -8,12 +8,15 @@ Player::Player()
     armor = 12;
     blocking = false;
     name = "";
+    if(!pArt.loadFromFile("Game Assets/Sprites/New Player Sprite/idle.png"))
+    {
+        exit(1);
+    }
+    p1.setTexture(pArt);
+    p1.setTextureRect(sf::IntRect(0,0,128,96));
+    p1.setOrigin(128.f/2.f,96.f/2.f);
+    p1.setPosition(250,400);
 }
-
-// Player::~Player()
-// {
-
-// }
 
 int Player::pAttack()
 {
@@ -58,4 +61,28 @@ int Player::getPAtt()
 int Player::getPHp()
 {
     return hp;
+}
+
+void Player::blockCheck()
+{
+    if(blocking == true)
+    {
+        blocking = false;
+    }
+}
+
+void Player::skillHeal()
+{
+    if(hp < 100)
+    {
+        if(hp+10 >= 100)
+        {
+            hp = 100;
+        } 
+        else
+        {
+            hp = hp+10;
+        }
+    }
+    
 }

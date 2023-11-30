@@ -40,14 +40,57 @@ void attack(Player &player,Enemy &enemy, int turn)
     }
 }
 
-void changeTurn(int &turn)
+void goblinFight(Player &player, Goblin &goblin , Game &game)
 {
-    if(turn == 1)
+    int turnOrder = 1;
+    while(player.getPHp() > 0 || goblin.getEHp() > 0)
     {
-        turn = 2;
+        game.events();
+        if(turnOrder == 1)
+        {
+
+            goblin.hpCheck();
+            goblin.blockCheck();
+            turnOrder = 2;
+        }
+        if(turnOrder == 2)
+        {
+            switch (goblin.makeDecision())
+            {
+            case 1:
+                attack(player,goblin,turnOrder);
+                break;
+            case 2:
+                goblin.eBlock();
+                break;
+            case 3:
+                superAttack(player,goblin);
+                break;
+            default:
+                break;
+            }
+            turnOrder = 1;
+            player.blockCheck();
+        }
+        
     }
-    else
-    {
-        turn = 1;
-    }
+}
+
+void superAttack(Player &player, Goblin &goblin)
+{
+    std::cout << "Enemy is Attacking" << std::endl;
+        if(player.pHit(goblin.superAtt()) == true)
+        {
+            player.pDam(goblin.getEAtt()*2);
+            std::cout << "Hit " << std::endl;
+            std::cout << player.getPHp() << std::endl;
+            std::cout << goblin.getEHp() << std::endl;
+        }
+        else
+        {
+            std::cout <<"Miss " << std::endl;
+            std::cout << player.getPHp() << std::endl;
+            std::cout << goblin.getEHp() << std::endl;
+        }
+
 }

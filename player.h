@@ -9,16 +9,17 @@ class Player
 {
     public:
             Player();
-            //~Player();
             int pAttack();
             bool pHit(int hit);
             void pDam(int damage);
             void pBlock();
             int getPAtt();
             int getPHp();
+            void blockCheck();
+            void skillHeal();
 
-            //sf::Sprite p1;
-            //sf::Texture pArt;
+            sf::Sprite p1;
+            sf::Texture pArt;
     private:
             int hp;
             int att;
