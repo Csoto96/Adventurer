@@ -5,25 +5,18 @@
 #include "enemy.h"
 #include "goblin.h"
 #include "interactions.h"
-<<<<<<< HEAD
+#include "game.h"
 const time_t GLOBAL_TIME = time(nullptr);
 int main()
 {
     
     //Player p2;
-=======
-#include "game.h"
-
-int main()
-{
     Game game(1200,600,"Adventurer");
     Player p2;
->>>>>>> 8d18521f98b638d11d88c747544823e26d744593
     Goblin g1;
-    int screenEvent = 0;
-    while(game.isRunning())
+    sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
+    while(window.isOpen())
     {
-<<<<<<< HEAD
         std::cout << time(nullptr) - GLOBAL_TIME;
         sf::Event event;
         while(window.pollEvent(event))
@@ -51,9 +44,11 @@ int main()
     // p2.pBlock();//1
     // changeTurn(turnOrder);//2
     // attack(p2,e2,turnOrder);//2
-=======
+
+    int screenEvent = 0;
+    while(game.isRunning())
+    {
         game.events();
->>>>>>> 8d18521f98b638d11d88c747544823e26d744593
 
     }
     return 0;
