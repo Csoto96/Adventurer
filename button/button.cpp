@@ -9,7 +9,7 @@
  */
 Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Color color)
 {
-    if (!mTexture.loadFromFile("button.png"))
+    if (!mTexture.loadFromFile("button/button.png"))
     {
         std::cout<<"Error opening file\n";
         exit(1);
@@ -30,7 +30,7 @@ Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Colo
     mButton.setScale(size.x/imageSize.x, size.y/imageSize.y);
     //Make label
 
-    if (!mFont.loadFromFile("college.ttf"))
+    if (!mFont.loadFromFile("button/college.ttf"))
     {
         std::cout<<"Error opening file\n";
         exit(2);
@@ -145,7 +145,7 @@ void Button::update(sf::Event& e, sf::RenderWindow& window)
  */
 Button::Button()
 {
-    if (!mTexture.loadFromFile("button.png"))
+    if (!mTexture.loadFromFile("button/button.png"))
     {
         std::cout<<"Error opening file\n";
         exit(1);
@@ -166,7 +166,7 @@ Button::Button()
     mButton.setScale(1, 1);
     //Make label
 
-    if (!mFont.loadFromFile("college.ttf"))
+    if (!mFont.loadFromFile("button/college.ttf"))
     {
         std::cout<<"Error opening file\n";
         exit(2);

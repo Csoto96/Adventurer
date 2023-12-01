@@ -17,7 +17,6 @@ class Game
         void draw(sf::Text &t);
         void draw(sf::RectangleShape &r);
         void clear();
-    private:
         sf::Event e;
         sf::RenderWindow window;
 };

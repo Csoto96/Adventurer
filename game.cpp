@@ -42,7 +42,7 @@ void Game::draw(sf::RectangleShape &r){
 }
 
 void Game::clear(){
-    window.clear();
+    window.clear(sf::Color::Black);
 }
 
 void Game::draw(sf::Text &t){

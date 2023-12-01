@@ -6,6 +6,7 @@
 #include "goblin.h"
 #include "interactions.h"
 #include "game.h"
+#include "button/button.h"
 const time_t GLOBAL_TIME = time(nullptr);
 int main()
 {
@@ -14,25 +15,51 @@ int main()
     //Game game(1200,600,"Adventurer");
     Player p2;
     Goblin g1;
-    sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
-    while(window.isOpen())
+    Button startB("Start",{600,400},{200,71},sf::Color::Red);
+    Button attackB("Attack",{100,400},{200,71},sf::Color::Red);
+    Button blockB("Block",{350,400},{200,71},sf::Color::Red);
+    Button skillB("Skill",{600,400},{200,71},sf::Color::Red);
+    sf::Text startText;
+    sf::Font font;
+    font.loadFromFile("button/college.ttf");
+    startText.setFont(font);
+    startText.setString("Adventurer");
+    startText.setCharacterSize(24);
+    startText.setFillColor(sf::Color::Red);
+    Game game(1200,600,"Adventurer");
+    int current = 1;
+    while(game.isRunning())
     {
-        std::cout << time(nullptr) - GLOBAL_TIME;
-        sf::Event event;
-        while(window.pollEvent(event))
+        game.events();
+        
+        if(current == 1)
         {
-            if(event.type == sf::Event::Closed)
-            {
-            // Close window button clicked.
-                window.close();
-            }
+            startScreen(p2,game,startB,startText,current);
         }
-        window.clear();
-        // Draw here.
-        window.draw(g1.gob);
-        window.draw(p2.p1);
-        window.display();
+        if(current == 2)
+        {
+            exit(1);
+        }
     }
+//     sf::RenderWindow window(sf::VideoMode(1200, 600), "Window name");
+//     while(window.isOpen())
+//     {
+//         std::cout << time(nullptr) - GLOBAL_TIME;
+//         sf::Event event;
+//         while(window.pollEvent(event))
+//         {
+//         if(event.type == sf::Event::Closed)
+//         {
+// // Close window button clicked.
+//                 window.close();
+//             }
+//         }
+//         window.clear();
+//         // Draw here.
+//         window.draw(g1.gob);
+//         window.draw(p2.p1);
+//         window.display();
+//     }
     // int turnOrder = 1;
     // attack(p2,e2,turnOrder); //1
     // changeTurn(turnOrder);//2

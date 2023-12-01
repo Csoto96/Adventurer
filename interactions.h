@@ -13,6 +13,6 @@
 
 void attack(Player &player,Enemy &enemy, int turn);
 void goblinFight(Player &player, Goblin &goblin,Game &game);
-void startScreen(Player &player, Game &game, Button &button, sf::Text start);
+void startScreen(Player &player, Game &game, Button &button, sf::Text &start,int &currentScreen);
 void superAttack(Player &player, Goblin &goblin);
 #endif

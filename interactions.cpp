@@ -94,3 +94,39 @@ void superAttack(Player &player, Goblin &goblin)
         }
 
 }
+
+void startScreen(Player &player, Game &game, Button &button, sf::Text &start, int &currentScreen)
+{
+    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
+    b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
+    b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
+    b3Art.loadFromFile("Game Assets/Level Sprites/background3.png");
+    b4Art.loadFromFile("Game Assets/Level Sprites/background4a.png");
+    b5Art.loadFromFile("Game Assets/Level Sprites/background4b.png");
+    background1.setTexture(&b1Art);
+    background2.setTexture(&b2Art);
+    background3.setTexture(&b3Art);
+    background4.setTexture(&b4Art);
+    background5.setTexture(&b5Art);
+    while(currentScreen == 1)
+    {
+        game.events(); 
+        button.update(game.e,game.window);
+        game.clear();
+        game.draw(background1);
+        game.draw(background2);
+        game.draw(background3);
+        game.draw(background4);
+        game.draw(button.mButton);
+        game.draw(start);
+        game.draw(player.p1);
+        game.display();
+        if(button.mBtnState == clicked)
+        {
+            currentScreen = 2;
+        }
+
+    }
+    
+}
