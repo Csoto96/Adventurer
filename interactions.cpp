@@ -55,9 +55,10 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
     int turnOrder = 1;
-    while(player.getPHp() >= 0 || goblin.getEHp() >= 0)
+    while(player.getPHp() > 0 || goblin.getEHp() > 0)
     {
         game.events();
+        static bool lockClick;
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
         skbutton.update(game.e,game.window);
@@ -75,47 +76,69 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         game.draw(player.p1);
         game.draw(goblin.gob);
         game.display();
+        if(game.e.type == sf::Event::MouseButtonPressed)
+        {
+            if(game.e.mouseButton.button == sf::Mouse::Left && lockClick != true)
+            {
         if(turnOrder == 1)
         {
             if(abutton.mBtnState == clicked)
             {
                 attack(player,goblin,turnOrder);
+                turnOrder = 2;
             }
             if(blbutton.mBtnState == clicked)
             {
                 player.pBlock();
+                turnOrder = 2;
             }
             if(skbutton.mBtnState == clicked)
             {
                 player.skillHeal();
+                turnOrder = 2;
             }
             goblin.hpCheck();
             goblin.blockCheck();
-            turnOrder = 2;
         }
-        if((turnOrder == 2 && abutton.mBtnState == clicked)||
-           (turnOrder == 2 && blbutton.mBtnState == clicked)||
-           (turnOrder == 2 && skbutton.mBtnState == clicked))
-        {
-            switch (goblin.makeDecision())
-            {
-            case 1:
-                attack(player,goblin,turnOrder);
-                break;
-            case 2:
-                goblin.eBlock();
-                break;
-            case 3:
-                superAttack(player,goblin);
-                break;
-            default:
-                break;
-            }
+                if(turnOrder == 2 )
+                {
+                    switch (goblin.makeDecision())
+                    {
+                    case 1:
+                        attack(player,goblin,turnOrder);
+                        break;
+                    case 2:
+                        goblin.eBlock();
+                        break;
+                    case 3:
+                        superAttack(player,goblin);
+                        break;
+                    default:
+                        break;
+                    }
             turnOrder = 1;
             player.blockCheck();
+                } 
+            lockClick = true;
+            }
         }
-        
+        if(game.e.type == sf::Event::MouseButtonReleased)
+        {
+            if(game.e.mouseButton.button == sf::Mouse::Left)
+            {
+                lockClick = false;
+            }
+        }
+        if(player.getPHp() <= 0)
+        {
+            break;
+        }
+        if(goblin.getEHp() <= 0)
+        {
+            break;
+        }
     }
+        
     if(player.getPHp() <= 0)
     {
         currentScreen = 5;   
