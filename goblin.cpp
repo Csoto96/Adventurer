@@ -19,8 +19,8 @@ Goblin::Goblin()
     gob.setTexture(idleArt);
     gob.setTextureRect(sf::IntRect(0,0,150,150));
     gob.setOrigin(150.f/2.f,150.f/2.f);
-    gob.setPosition(750,200);
-    gob.setScale({1,1});
+    gob.setPosition(750,275);
+    gob.setScale({3,3});
 }
 
 int Goblin::eAttack()
