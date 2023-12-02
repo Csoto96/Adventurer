@@ -3,7 +3,7 @@
 Goblin::Goblin()
 {
     srand((unsigned) time(NULL));
-    hp = 20;
+    hp = 30;
     att = 10;
     armor = 10;
     blocking = false;
@@ -66,7 +66,7 @@ int Goblin::superAtt()
 
 void Goblin::hpCheck()
 {
-    if(hp <= 15)
+    if(hp <= 20)
     {
         isHurt = true;
     }

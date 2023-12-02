@@ -44,6 +44,19 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
 {
     sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
+    sf::Text playerHp, enemyHp;
+    sf::Font font;
+    font.loadFromFile("button/college.ttf");
+    playerHp.setFont(font);
+    enemyHp.setFont(font);
+    playerHp.setCharacterSize(30);
+    enemyHp.setCharacterSize(30);
+    playerHp.setFillColor(sf::Color::Red);
+    enemyHp.setFillColor(sf::Color::Red);
+    playerHp.setString(std::to_string(player.getPHp()));
+    enemyHp.setString(std::to_string(goblin.getEHp()));
+    playerHp.setPosition({235,165});
+    enemyHp.setPosition({750,200});
     b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
     b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
     b3Art.loadFromFile("Game Assets/Level Sprites/background3.png");
@@ -62,6 +75,8 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
         skbutton.update(game.e,game.window);
+        playerHp.setString(std::to_string(player.getPHp()));
+        enemyHp.setString(std::to_string(goblin.getEHp()));
         game.clear();
         game.draw(background1);
         game.draw(background2);
@@ -75,6 +90,8 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         game.draw(skbutton.mText);
         game.draw(player.p1);
         game.draw(goblin.gob);
+        game.draw(playerHp);
+        game.draw(enemyHp);
         game.display();
         if(game.e.type == sf::Event::MouseButtonPressed)
         {
