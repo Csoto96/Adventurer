@@ -24,8 +24,9 @@ int main()
     font.loadFromFile("button/college.ttf");
     startText.setFont(font);
     startText.setString("Adventurer");
-    startText.setCharacterSize(24);
+    startText.setCharacterSize(100);
     startText.setFillColor(sf::Color::Red);
+    startText.setPosition(350,100);
     Game game(1200,600,"Adventurer");
     int current = 1;
     while(game.isRunning())
@@ -37,6 +38,10 @@ int main()
             startScreen(p2,game,startB,startText,current);
         }
         if(current == 2)
+        {
+            goblinFight(p2,g1,game,attackB,blockB,skillB,current);
+        }
+        if(current = 3)
         {
             exit(1);
         }

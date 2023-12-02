@@ -13,9 +13,10 @@ Player::Player()
         exit(1);
     }
     p1.setTexture(pArt);
-    p1.setTextureRect(sf::IntRect(0,0,128,96));
+    p1.setTextureRect(sf::IntRect(0,0,128,64));
     p1.setOrigin(128.f/2.f,96.f/2.f);
     p1.setPosition(250,300);
+    p1.setScale({3,3});
 }
 
 int Player::pAttack()

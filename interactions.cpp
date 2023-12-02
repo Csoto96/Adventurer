@@ -40,20 +40,62 @@ void attack(Player &player,Enemy &enemy, int turn)
     }
 }
 
-void goblinFight(Player &player, Goblin &goblin , Game &game)
+void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
+    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
+    b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
+    b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
+    b3Art.loadFromFile("Game Assets/Level Sprites/background3.png");
+    b4Art.loadFromFile("Game Assets/Level Sprites/background4a.png");
+    b5Art.loadFromFile("Game Assets/Level Sprites/background4b.png");
+    background1.setTexture(&b1Art);
+    background2.setTexture(&b2Art);
+    background3.setTexture(&b3Art);
+    background4.setTexture(&b4Art);
+    background5.setTexture(&b5Art);
     int turnOrder = 1;
-    while(player.getPHp() > 0 || goblin.getEHp() > 0)
+    while(player.getPHp() >= 0 || goblin.getEHp() >= 0)
     {
         game.events();
+        abutton.update(game.e,game.window);
+        blbutton.update(game.e,game.window);
+        skbutton.update(game.e,game.window);
+        game.clear();
+        game.draw(background1);
+        game.draw(background2);
+        game.draw(background3);
+        game.draw(background4);
+        game.draw(abutton.mButton);
+        game.draw(blbutton.mButton);
+        game.draw(skbutton.mButton);
+        game.draw(abutton.mText);
+        game.draw(blbutton.mText);
+        game.draw(skbutton.mText);
+        game.draw(player.p1);
+        game.draw(goblin.gob);
+        game.display();
         if(turnOrder == 1)
         {
-
+            if(abutton.mBtnState == clicked)
+            {
+                attack(player,goblin,turnOrder);
+            }
+            if(blbutton.mBtnState == clicked)
+            {
+                player.pBlock();
+            }
+            if(skbutton.mBtnState == clicked)
+            {
+                player.skillHeal();
+            }
             goblin.hpCheck();
             goblin.blockCheck();
             turnOrder = 2;
         }
-        if(turnOrder == 2)
+        if((turnOrder == 2 && abutton.mBtnState == clicked)||
+           (turnOrder == 2 && blbutton.mBtnState == clicked)||
+           (turnOrder == 2 && skbutton.mBtnState == clicked))
         {
             switch (goblin.makeDecision())
             {
@@ -74,6 +116,15 @@ void goblinFight(Player &player, Goblin &goblin , Game &game)
         }
         
     }
+    if(player.getPHp() <= 0)
+    {
+        currentScreen = 5;   
+    }
+    else
+    {
+        currentScreen = 3;
+    }
+    
 }
 
 void superAttack(Player &player, Goblin &goblin)
@@ -119,6 +170,7 @@ void startScreen(Player &player, Game &game, Button &button, sf::Text &start, in
         game.draw(background3);
         game.draw(background4);
         game.draw(button.mButton);
+        game.draw(button.mText);
         game.draw(start);
         game.draw(player.p1);
         game.display();

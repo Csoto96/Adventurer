@@ -20,21 +20,22 @@ Goblin::Goblin()
     gob.setTextureRect(sf::IntRect(0,0,150,150));
     gob.setOrigin(150.f/2.f,150.f/2.f);
     gob.setPosition(750,200);
+    gob.setScale({1,1});
 }
 
 int Goblin::eAttack()
 {
     int store = Enemy::eAttack();
-    int frameCount = 1;
-    gob.setTexture(attArt);
-    gob.setTextureRect(sf::IntRect(0,0,150,150));
-    gob.setOrigin(150.f/2.f,150.f/2.f);
-    gob.setPosition(750,300);
-    while(frameCount < 9)
-    {
-        gob.setTextureRect(sf::IntRect(0+150*frameCount,0+150*frameCount,150,150));
-        frameCount++;
-    }
+    // int frameCount = 1;
+    // gob.setTexture(attArt);
+    // gob.setTextureRect(sf::IntRect(0,0,150,150));
+    // gob.setOrigin(150.f/2.f,150.f/2.f);
+    // gob.setPosition(750,300);
+    // while(frameCount < 9)
+    // {
+    //     gob.setTextureRect(sf::IntRect(0+150*frameCount,0+150*frameCount,150,150));
+    //     frameCount++;
+    // }
     return store;
 }
 int Goblin::makeDecision()
