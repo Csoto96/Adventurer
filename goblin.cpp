@@ -4,8 +4,8 @@ Goblin::Goblin()
 {
     srand((unsigned) time(NULL));
     hp = 30;
-    att = 10;
-    armor = 10;
+    att = 8;
+    armor = 8;
     blocking = false;
     name = "Goblin";
     isHurt = false;
@@ -20,7 +20,7 @@ Goblin::Goblin()
     gob.setTextureRect(sf::IntRect(0,0,150,150));
     gob.setOrigin(150.f/2.f,150.f/2.f);
     gob.setPosition(750,275);
-    gob.setScale({3,3});
+    gob.setScale({-3,3});
 }
 
 int Goblin::eAttack()
@@ -47,7 +47,7 @@ int Goblin::makeDecision()
     }
     if(turn == 2)
     {
-        return 2;
+        return 1;
     }
     if(turn == 3 && isHurt == true)
     {
