@@ -5,11 +5,7 @@ void attack(Player &player,Enemy &enemy, int turn)
     //player turn
     if(turn == 1)
     {
-<<<<<<< HEAD
-        std::cout << "Player is Attacking" << std::endl;
-=======
         player.animationAttack();
->>>>>>> fa012d4d7d21a524068fae8959e6c062df59ffb2
         if(enemy.eHit(player.pAttack()) == true)
         {
             enemy.eDam(player.getPAtt());
@@ -42,7 +38,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     playerHp.setString(std::to_string(player.getPHp()));
     enemyHp.setString(std::to_string(goblin.getEHp()));
     playerHp.setPosition({235,165});
-    enemyHp.setPosition({750,200});
+    enemyHp.setPosition({725,200});
     b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
     b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
     b3Art.loadFromFile("Game Assets/Level Sprites/background3.png");
@@ -64,6 +60,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
         skbutton.update(game.e,game.window);
+        player.update();
         playerHp.setString(std::to_string(player.getPHp()));
         enemyHp.setString(std::to_string(goblin.getEHp()));
         game.clear();
@@ -77,7 +74,6 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         game.draw(abutton.mText);
         game.draw(blbutton.mText);
         game.draw(skbutton.mText);
-        player.update();
         game.draw(player.p1);
         game.draw(goblin.gob);
         game.draw(playerHp);
@@ -157,8 +153,6 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     
 }
 
-<<<<<<< HEAD
-=======
 void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
     sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
@@ -291,7 +285,6 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
     
 }
 
->>>>>>> fa012d4d7d21a524068fae8959e6c062df59ffb2
 void superAttack(Player &player, Goblin &goblin)
 {
     
@@ -300,8 +293,6 @@ void superAttack(Player &player, Goblin &goblin)
             player.pDam(goblin.getEAtt()*2);
         }
 
-<<<<<<< HEAD
-=======
 }
 
 void superAttack(Player &player, Skeleton &skeleton)
@@ -310,7 +301,6 @@ void superAttack(Player &player, Skeleton &skeleton)
         {
             player.pDam(skeleton.getEAtt()*2); 
         }
->>>>>>> fa012d4d7d21a524068fae8959e6c062df59ffb2
 }
 
 void startScreen(Player &player, Game &game, Button &button, sf::Text &start, int &currentScreen)
@@ -351,8 +341,6 @@ void startScreen(Player &player, Game &game, Button &button, sf::Text &start, in
 
     }
     
-<<<<<<< HEAD
-=======
 }
 
 void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &dead,int &currentScreen)
@@ -478,5 +466,4 @@ void interlude(Level &level, Game &game)
             break;
         }
     }
->>>>>>> fa012d4d7d21a524068fae8959e6c062df59ffb2
 }
