@@ -20,10 +20,11 @@ class Player
             void skillHeal();
             void update();
             void animationAttack();
+            void setHp(int num);
 
             sf::Sprite p1;
             sf::Texture pArt;
-            sf::Texture p1Attack;
+            sf::Texture p1Attack, p1Dead, p1Win;
             sf::Clock clock;
             sf::IntRect rect;
             

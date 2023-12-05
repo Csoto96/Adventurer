@@ -5,38 +5,18 @@ void attack(Player &player,Enemy &enemy, int turn)
     //player turn
     if(turn == 1)
     {
-        std::cout << "Player is Attacking" << std::endl;
         player.animationAttack();
         if(enemy.eHit(player.pAttack()) == true)
         {
             enemy.eDam(player.getPAtt());
-            std::cout << "Hit " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << enemy.getEHp() << std::endl;
-        }
-        else
-        {
-            std::cout <<"Miss " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << enemy.getEHp() << std::endl;
         }
     }
     //enemy turn
     if(turn == 2)
     {
-        std::cout << "Enemy is Attacking" << std::endl;
         if(player.pHit(enemy.eAttack()) == true)
         {
             player.pDam(enemy.getEAtt());
-            std::cout << "Hit " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << enemy.getEHp() << std::endl;
-        }
-        else
-        {
-            std::cout <<"Miss " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << enemy.getEHp() << std::endl;
         }
     }
 }
@@ -47,6 +27,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     sf::Text playerHp, enemyHp;
     sf::Font font;
+    goblin.setHp(30);
     font.loadFromFile("button/college.ttf");
     playerHp.setFont(font);
     enemyHp.setFont(font);
@@ -175,6 +156,7 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     sf::Text playerHp, enemyHp;
     sf::Font font;
+    skeleton.setHp(40);
     font.loadFromFile("button/college.ttf");
     playerHp.setFont(font);
     enemyHp.setFont(font);
@@ -204,6 +186,7 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
         skbutton.update(game.e,game.window);
+        player.update();
         playerHp.setString(std::to_string(player.getPHp()));
         enemyHp.setString(std::to_string(skeleton.getEHp()));
         game.clear();
@@ -298,39 +281,20 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
 
 void superAttack(Player &player, Goblin &goblin)
 {
-    std::cout << "Enemy is Attacking" << std::endl;
+    
         if(player.pHit(goblin.superAtt()) == true)
         {
             player.pDam(goblin.getEAtt()*2);
-            std::cout << "Hit " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << goblin.getEHp() << std::endl;
         }
-        else
-        {
-            std::cout <<"Miss " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << goblin.getEHp() << std::endl;
-        }
+
 }
 
 void superAttack(Player &player, Skeleton &skeleton)
 {
-    std::cout << "Enemy is Attacking" << std::endl;
         if(player.pHit(skeleton.superAtt()) == true)
         {
-            player.pDam(skeleton.getEAtt()*2);
-            std::cout << "Hit " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << skeleton.getEHp() << std::endl;
+            player.pDam(skeleton.getEAtt()*2); 
         }
-        else
-        {
-            std::cout <<"Miss " << std::endl;
-            std::cout << player.getPHp() << std::endl;
-            std::cout << skeleton.getEHp() << std::endl;
-        }
-
 }
 
 void startScreen(Player &player, Game &game, Button &button, sf::Text &start, int &currentScreen)
@@ -384,6 +348,9 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
     background3.setTexture(&b3Art);
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
+    player.p1.setPosition({500,250});
+    player.p1.setTexture(player.p1Dead);
+    player.p1.setTextureRect(sf::IntRect(128,64,128,64));
     while(currentScreen == 5)
     {
         game.events(); 
@@ -404,7 +371,10 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
         if(rbutton.mBtnState == clicked)
         {
             currentScreen = 1;
-            //player.hp = 100;
+            player.setHp(100);
+            player.p1.setTexture(player.pArt);
+            player.p1.setTextureRect(sf::IntRect(0,0,128,64));
+            player.p1.setPosition(250,300);
         }
         if(ebutton.mBtnState == clicked)
         {
@@ -428,6 +398,9 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
     background3.setTexture(&b3Art);
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
+    player.p1.setPosition({500,300});
+    player.p1.setTexture(player.p1Win);
+    player.p1.setTextureRect(sf::IntRect(384,0,128,64));
     while(currentScreen == 4)
     {
         game.events(); 
@@ -448,7 +421,10 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
         if(rbutton.mBtnState == clicked)
         {
             currentScreen = 1;
-            //player.hp = 100;
+            player.setHp(100);
+            player.p1.setTexture(player.pArt);
+            player.p1.setTextureRect(sf::IntRect(0,0,128,64));
+            player.p1.setPosition(250,300);
         }
         if(ebutton.mBtnState == clicked)
         {

@@ -16,6 +16,14 @@ Player::Player()
     {
         exit(1);
     }
+    if(!p1Dead.loadFromFile("Game Assets/Sprites/New Player Sprite/Death.png"))
+    {
+        exit(1);
+    }
+    if(!p1Win.loadFromFile("Game Assets/Sprites/New Player Sprite/Pray.png"))
+    {
+        exit(1);
+    }
     p1.setTexture(pArt);
     p1.setTextureRect(sf::IntRect(0,0,128,64));
     rect = sf::IntRect(0,0,128,64);
@@ -29,7 +37,6 @@ Player::Player()
 int Player::pAttack()
 {
     int toHit = 1 + (rand() % 20);
-    std::cout << "rolled " << toHit << std::endl;
     return toHit;
     isAttacking = 9;
 }
@@ -38,7 +45,6 @@ bool Player::pHit(int hit)
 {
     if(blocking == true)
     {
-        std::cout << "Blocked!" << std::endl;
         blocking = false;
         return false;
     }
@@ -58,7 +64,6 @@ void Player::pDam(int damage)
 
 void Player::pBlock()
 {
-    std::cout << "Player Blocking!" << std::endl;
     blocking = true;
 }
 
@@ -104,7 +109,6 @@ void Player::update()
 {
     sf::Time elapsed = clock.getElapsedTime();
     int ms = elapsed.asMilliseconds();
-    std::cout <<"attack" <<isAttacking << std::endl;
     if (isAttacking == -1)
     {
         
@@ -145,4 +149,9 @@ void Player::update()
    
     p1.setTextureRect(rect);
 
+}
+
+void Player::setHp(int num)
+{
+    hp = num;
 }
