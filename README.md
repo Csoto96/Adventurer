@@ -26,6 +26,8 @@ git clone https://github.com/Csoto96/Adventurer.git foldername </br>
 Change into directory </br>
 cd foldername </br>
 Compile our game </br>
-g++ -std=c++11 *.cpp button/*.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system </br>
+```
+g++ -std=c++11 *.cpp button/*.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+```
 Run the executable </br>
 ./sfml-app
