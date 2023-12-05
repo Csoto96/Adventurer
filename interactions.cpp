@@ -23,7 +23,7 @@ void attack(Player &player,Enemy &enemy, int turn)
 
 void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
-    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     sf::Text playerHp, enemyHp;
     sf::Font font;
@@ -155,7 +155,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
 
 void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
-    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     sf::Text playerHp, enemyHp;
     sf::Font font;
@@ -305,7 +305,7 @@ void superAttack(Player &player, Skeleton &skeleton)
 
 void startScreen(Player &player, Game &game, Button &button, sf::Text &start, int &currentScreen)
 {
-    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
     b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
@@ -345,7 +345,7 @@ void startScreen(Player &player, Game &game, Button &button, sf::Text &start, in
 
 void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &dead,int &currentScreen)
 {
-    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
     b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");
@@ -399,7 +399,7 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
 
 void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &win,int &currentScreen)
 {
-    sf::RectangleShape background1({1200,600}), background2({1200,600}), background3({1200,600}), background4({1200,600}), background5({1200,600});
+    sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
     sf::Texture b1Art , b2Art, b3Art , b4Art , b5Art;
     b1Art.loadFromFile("Game Assets/Level Sprites/background1.png");
     b2Art.loadFromFile("Game Assets/Level Sprites/background2.png");

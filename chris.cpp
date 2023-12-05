@@ -47,7 +47,7 @@ int main()
     winText.setCharacterSize(80);
     winText.setFillColor(sf::Color::Red);
     winText.setPosition(250,100);
-    Game game(1200,600,"Adventurer");
+    Game game(WINDOW_WIDTH,WINDOW_HEIGHT,"Adventurer");
     level.loadLevel(game.window);
     int current = 1;
     while(game.isRunning())
