@@ -11,11 +11,15 @@ class Goblin: public Enemy
         int superAtt();
         void hpCheck();
         void blockCheck();
-        //sf::Clock gClock;
+        void update();
+        sf::IntRect rect;
+        sf::Clock clock;
         sf::Sprite gob;
         sf::Texture attArt, idleArt, deadArt, hitArt;
+        void animationAttack();
         
     private:
+    int isAttacking;
     bool isHurt;
     int eAttack();
             

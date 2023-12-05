@@ -83,3 +83,7 @@ void Goblin::blockCheck()
         blocking = false;
     }
 }
+void Goblin::update()
+{
+    
+}
