@@ -455,3 +455,15 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
 
     }
 }
+
+void interlude(Level &level, Game &game)
+{
+    while(1)
+    {
+        game.events();
+        game.clear();
+        level.drawLevel(game.window);
+        level.animatePlayer(game.window);
+        game.display();
+    }
+}
