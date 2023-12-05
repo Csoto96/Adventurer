@@ -6,7 +6,7 @@ void attack(Player &player,Enemy &enemy, int turn)
     if(turn == 1)
     {
         std::cout << "Player is Attacking" << std::endl;
-        player.isAttacking = 9;
+        player.animationAttack();
         if(enemy.eHit(player.pAttack()) == true)
         {
             enemy.eDam(player.getPAtt());

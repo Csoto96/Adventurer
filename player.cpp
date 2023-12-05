@@ -71,6 +71,10 @@ int Player::getPHp()
 {
     return hp;
 }
+void Player::animationAttack()
+{
+    isAttacking = 9;
+}
 
 void Player::blockCheck()
 {

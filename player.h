@@ -19,13 +19,14 @@ class Player
             void blockCheck();
             void skillHeal();
             void update();
+            void animationAttack();
 
             sf::Sprite p1;
             sf::Texture pArt;
             sf::Texture p1Attack;
             sf::Clock clock;
             sf::IntRect rect;
-            int isAttacking;
+            
     private:
             int hp;
             int att;
@@ -33,6 +34,7 @@ class Player
             bool blocking;
             std::string name;
             int frame;
+            int isAttacking;
             
 };
 #endif
