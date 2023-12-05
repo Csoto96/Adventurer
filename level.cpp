@@ -154,30 +154,48 @@ void Level::drawLevel(sf::RenderWindow &window) {
 };
 
 void Level::animatePlayer(sf::RenderWindow &window) {
-
-    player.setTexture(playerTexture);
-    player.setTextureRect(sf::IntRect(46, 18, 46, 46));
-    player.setScale(3,3);
-    int currentFrame = 0;
-    sf::Clock frameClock;
-    int frameWidth = 46;
-    int frameHeight = 46;
-    int frameCount = 10;
-    float timePerFrame = 0.1f;
-
-    if (frameClock.getElapsedTime().asSeconds() > timePerFrame) {
-    currentFrame = (currentFrame + 1) % frameCount;
-    frameClock.restart();
-    }
-    
+    //cordnation of the player sprite in the sprite sheet
+    //44, 18, 50, 50
+    //172, 18, 50, 50
+    //44, 80, 50, 50
+    //172, 80, 50, 50
+    //44, 209, 50, 50
+    //172, 209, 50, 50
     if(!playerTexture.loadFromFile("New Player Sprite/Run.png")) {
         std::cout << "Error loading run.png" << std::endl;
     }
+    player.setTexture(playerTexture);
+    // player.setTextureRect(sf::IntRect(44, 18, 50, 50));
+    player.setScale(3,3);
 
-    player.setTextureRect(sf::IntRect(currentFrame * frameWidth, 0, frameWidth, frameHeight));
-    player.setPosition(0, WINDOW_HEIGHT - 32*3 - 46*3);
+    sf::IntRect frames[] = {
+        sf::IntRect(44, 18, 50, 50),
+        sf::IntRect(172, 18, 50, 50),
+        sf::IntRect(44, 80, 50, 50),
+        sf::IntRect(172, 80, 50, 50),
+        sf::IntRect(44, 209, 50, 50),
+        sf::IntRect(172, 209, 50, 50)
+    };
 
+    // Number of frames in the sprite sheet
+    int frameCount = sizeof(frames) / sizeof(frames[0]);
 
+    // Time per frame (in seconds)
+    float timePerFrame = 0.1f;
+
+    // Update the current frame
+    if (frameClock.getElapsedTime().asSeconds() > timePerFrame) {
+        currentFrame = (currentFrame + 1) % frameCount;
+        frameClock.restart();
+    }
+
+    // Set the texture rect to the current frame
+    player.setTextureRect(frames[currentFrame]);
+
+    // Set the position of the player sprite
+    player.setPosition((WINDOW_WIDTH/2)-50, WINDOW_HEIGHT - 32*3 - 46*3);
+
+    // Draw the player sprite
     window.draw(player);
 
 
