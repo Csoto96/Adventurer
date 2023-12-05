@@ -7,6 +7,9 @@
 //universal window size of program
 const int WINDOW_WIDTH = 1440;
 const int WINDOW_HEIGHT = 720;
+//universal scale of program
+static int currentFrame = 0;
+static sf::Clock frameClock;
 // make a class that loads the background images and displays them in the window in the correct order for a parallax effect located in the "Level Sprites" folder
 class Level {
     public:
