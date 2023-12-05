@@ -16,6 +16,7 @@ class Enemy
             void eBlock();
             int getEAtt();
             int getEHp();
+            void setHp(int num);
     protected:
             int hp;
             int att;

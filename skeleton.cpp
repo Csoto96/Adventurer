@@ -50,7 +50,6 @@ int Skeleton::makeDecision()
 int Skeleton::superAtt()
 {
     int toHit = 3 + (rand() % 20);
-    std::cout << "rolled " << toHit << std::endl;
     return toHit;
 }
 

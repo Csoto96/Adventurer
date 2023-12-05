@@ -31,7 +31,7 @@ void Level::loadLevel(sf::RenderWindow &window) {
     background3Sprite.setScale(1.5, 1.5);
     background4Sprite.setScale(1.5, 1.5);
     //load "mainlev_build.png" into block1, block2, block3, and block4
-    if (!tileSheet.loadFromFile("Level Sprites/mainlev_build.png")) {
+    if (!tileSheet.loadFromFile("Game Assets/Level Sprites/mainlev_build.png")) {
         std::cout << "Error loading mainlev_build.png" << std::endl;
     }
     block1.setTexture(tileSheet);
