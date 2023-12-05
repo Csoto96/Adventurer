@@ -8,16 +8,16 @@ Level::Level() {
 
 void Level::loadLevel(sf::RenderWindow &window) {
     // Load the background parallax background files 1 through 4
-    if (!background1.loadFromFile("Level Sprites/background1.png")) {
+    if (!background1.loadFromFile("Game Assets/Level Sprites/background1.png")) {
         std::cout << "Error loading background1.png" << std::endl;
     }
-    if (!background2.loadFromFile("Level Sprites/background2.png")) {
+    if (!background2.loadFromFile("Game Assets/Level Sprites/background2.png")) {
         std::cout << "Error loading background2.png" << std::endl;
     }
-    if (!background3.loadFromFile("Level Sprites/background3.png")) {
+    if (!background3.loadFromFile("Game Assets/Level Sprites/background3.png")) {
         std::cout << "Error loading background3.png" << std::endl;
     }
-    if (!background4.loadFromFile("Level Sprites/background4a.png")) {
+    if (!background4.loadFromFile("Game Assets/Level Sprites/background4a.png")) {
         std::cout << "Error loading background4.png" << std::endl;
     }
     // Set the background sprites to the textures
@@ -161,7 +161,7 @@ void Level::animatePlayer(sf::RenderWindow &window) {
     //172, 80, 50, 50
     //44, 209, 50, 50
     //172, 209, 50, 50
-    if(!playerTexture.loadFromFile("New Player Sprite/Run.png")) {
+    if(!playerTexture.loadFromFile("Game Assets/Sprites/New Player Sprite/Run.png")) {
         std::cout << "Error loading run.png" << std::endl;
     }
     player.setTexture(playerTexture);
