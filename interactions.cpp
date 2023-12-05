@@ -460,6 +460,7 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
 
 void interlude(Level &level, Game &game)
 {
+    sf::Clock animateTimer;
     while(1)
     {
         game.events();
@@ -467,5 +468,9 @@ void interlude(Level &level, Game &game)
         level.drawLevel(game.window);
         level.animatePlayer(game.window);
         game.display();
+        if(animateTimer.getElapsedTime().asSeconds() > 2)
+        {
+            break;
+        }
     }
 }
