@@ -6,6 +6,7 @@ void attack(Player &player,Enemy &enemy, int turn)
     if(turn == 1)
     {
         std::cout << "Player is Attacking" << std::endl;
+        player.isAttacking = 9;
         if(enemy.eHit(player.pAttack()) == true)
         {
             enemy.eDam(player.getPAtt());
@@ -75,6 +76,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
         skbutton.update(game.e,game.window);
+        player.update();
         playerHp.setString(std::to_string(player.getPHp()));
         enemyHp.setString(std::to_string(goblin.getEHp()));
         game.clear();

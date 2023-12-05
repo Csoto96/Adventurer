@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdlib>
 #include <iostream>
+#include <chrono>
 
 class Player
 {
@@ -17,14 +18,21 @@ class Player
             int getPHp();
             void blockCheck();
             void skillHeal();
+            void update();
 
             sf::Sprite p1;
             sf::Texture pArt;
+            sf::Texture p1Attack;
+            sf::Clock clock;
+            sf::IntRect rect;
+            int isAttacking;
     private:
             int hp;
             int att;
             int armor;
             bool blocking;
             std::string name;
+            int frame;
+            
 };
 #endif
