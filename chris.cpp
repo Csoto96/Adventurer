@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <cstdlib>
 #include <iostream>
 #include "player.h"
@@ -16,6 +17,10 @@ int main()
     Goblin g1;
     Skeleton sk1;
     Level level;
+    // sf::Music startM, battleM;
+    // sf::SoundBuffer sM, bM;
+    // startM.openFromFile("Game Assets/Music/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav");
+    // battleM.openFromFile("Game Assets/Music/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav");
     Button startB("Start",{600,400},{200,71},sf::Color::Red);
     Button attackB("Attack",{100,400},{200,71},sf::Color::Red);
     Button blockB("Block",{350,400},{200,71},sf::Color::Red);
@@ -72,5 +77,6 @@ int main()
             deathScreen(p2,game,restartB,exitB,deadText,current);
         }
     }
+    
     return 0;
 }

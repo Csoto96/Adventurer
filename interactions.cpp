@@ -49,6 +49,9 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     background3.setTexture(&b3Art);
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
+    // music.stop();
+    // music.play();
+    // music.setLoop(true);
     int turnOrder = 1;
     while(player.getPHp() > 0 || goblin.getEHp() > 0)
     {
@@ -178,6 +181,9 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
     background3.setTexture(&b3Art);
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
+    // music.stop();
+    // music.play();
+    // music.setLoop(true);
     int turnOrder = 1;
     while(player.getPHp() > 0 || skeleton.getEHp() > 0)
     {
@@ -311,6 +317,9 @@ void startScreen(Player &player, Game &game, Button &button, sf::Text &start, in
     background3.setTexture(&b3Art);
     background4.setTexture(&b4Art);
     background5.setTexture(&b5Art);
+    // music.stop();
+    // music.play();
+    // music.setLoop(true);
     while(currentScreen == 1)
     {
         game.events(); 
@@ -351,6 +360,9 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
     player.p1.setPosition({500,250});
     player.p1.setTexture(player.p1Dead);
     player.p1.setTextureRect(sf::IntRect(128,64,128,64));
+    // music.stop();
+    // music.play();
+    // music.setLoop(true);
     while(currentScreen == 5)
     {
         game.events(); 
@@ -378,6 +390,7 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
         }
         if(ebutton.mBtnState == clicked)
         {
+            //music.stop();
             exit(1);
         }
 
@@ -401,6 +414,9 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
     player.p1.setPosition({500,300});
     player.p1.setTexture(player.p1Win);
     player.p1.setTextureRect(sf::IntRect(384,0,128,64));
+    // music.stop();
+    // music.play();
+    // music.setLoop(true);
     while(currentScreen == 4)
     {
         game.events(); 
@@ -428,6 +444,7 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
         }
         if(ebutton.mBtnState == clicked)
         {
+            //music.stop();
             exit(1);
         }
 
