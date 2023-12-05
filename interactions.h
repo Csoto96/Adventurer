@@ -10,6 +10,7 @@
 #include "skeleton.h"
 #include "game.h"
 #include "button/button.h"
+#include "level.h"
 
 
 void attack(Player &player,Enemy &enemy, int turn);
@@ -20,4 +21,5 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
 void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &win,int &currentScreen);
 void superAttack(Player &player, Goblin &goblin);
 void superAttack(Player &player, Skeleton &skeleton);
+void interlude(Level &level, Game &game);
 #endif

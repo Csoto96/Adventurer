@@ -8,6 +8,7 @@
 #include "interactions.h"
 #include "game.h"
 #include "button/button.h"
+#include "level.h"
 const time_t GLOBAL_TIME = time(nullptr);
 int main()
 {
