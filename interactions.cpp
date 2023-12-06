@@ -1,5 +1,21 @@
+/**
+ * @file interactions.cpp
+ * @author chris/david
+ * @brief neutral function ground for all classes to interact with each other
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "interactions.h"
-
+/**
+ * @brief determines if player or enemy hit each other and deals damage
+ * 
+ * @param player 
+ * @param enemy 
+ * @param turn 
+ */
 void attack(Player &player,Enemy &enemy, int turn)
 {
     //player turn
@@ -20,7 +36,17 @@ void attack(Player &player,Enemy &enemy, int turn)
         }
     }
 }
-
+/**
+ * @brief stage ground for goblin fight
+ * 
+ * @param player 
+ * @param goblin 
+ * @param game 
+ * @param abutton 
+ * @param blbutton 
+ * @param skbutton 
+ * @param currentScreen 
+ */
 void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
     sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
@@ -56,6 +82,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     while(player.getPHp() > 0 || goblin.getEHp() > 0)
     {
         game.events();
+        //essential bool to prevent enemy from going when not supposed to also locks click to prevent multiple clicks
         static bool lockClick;
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
@@ -132,6 +159,7 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
                 lockClick = false;
             }
         }
+        //for some reason needed to break out of while loop idk why
         if(player.getPHp() <= 0)
         {
             break;
@@ -152,7 +180,17 @@ void goblinFight(Player &player, Goblin &goblin , Game &game, Button &abutton,Bu
     }
     
 }
-
+/**
+ * @brief stage for skeleton fight
+ * 
+ * @param player 
+ * @param skeleton 
+ * @param game 
+ * @param abutton 
+ * @param blbutton 
+ * @param skbutton 
+ * @param currentScreen 
+ */
 void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abutton,Button &blbutton,Button &skbutton, int &currentScreen)
 {
     sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
@@ -188,6 +226,7 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
     while(player.getPHp() > 0 || skeleton.getEHp() > 0)
     {
         game.events();
+        //essential bool to prevent enemy from going when not supposed to also locks click to prevent multiple clicks
         static bool lockClick;
         abutton.update(game.e,game.window);
         blbutton.update(game.e,game.window);
@@ -284,7 +323,12 @@ void skeletonFight(Player &player, Skeleton &skeleton , Game &game, Button &abut
     }
     
 }
-
+/**
+ * @brief determines if super attack hit from goblin
+ * 
+ * @param player 
+ * @param goblin 
+ */
 void superAttack(Player &player, Goblin &goblin)
 {
     
@@ -294,7 +338,12 @@ void superAttack(Player &player, Goblin &goblin)
         }
 
 }
-
+/**
+ * @brief determines if super hit fom skeleton
+ * 
+ * @param player 
+ * @param skeleton 
+ */
 void superAttack(Player &player, Skeleton &skeleton)
 {
         if(player.pHit(skeleton.superAtt()) == true)
@@ -302,7 +351,15 @@ void superAttack(Player &player, Skeleton &skeleton)
             player.pDam(skeleton.getEAtt()*2); 
         }
 }
-
+/**
+ * @brief stage for start screen
+ * 
+ * @param player 
+ * @param game 
+ * @param button 
+ * @param start 
+ * @param currentScreen 
+ */
 void startScreen(Player &player, Game &game, Button &button, sf::Text &start, int &currentScreen)
 {
     sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
@@ -342,7 +399,16 @@ void startScreen(Player &player, Game &game, Button &button, sf::Text &start, in
     }
     
 }
-
+/**
+ * @brief stage for death screen
+ * 
+ * @param player 
+ * @param game 
+ * @param rbutton 
+ * @param ebutton 
+ * @param dead 
+ * @param currentScreen 
+ */
 void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &dead,int &currentScreen)
 {
     sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
@@ -396,7 +462,16 @@ void deathScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf
 
     }
 }
-
+/**
+ * @brief stage for win screen
+ * 
+ * @param player 
+ * @param game 
+ * @param rbutton 
+ * @param ebutton 
+ * @param win 
+ * @param currentScreen 
+ */
 void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::Text &win,int &currentScreen)
 {
     sf::RectangleShape background1({1440,720}), background2({1440,720}), background3({1440,720}), background4({1440,720}), background5({1440,720});
@@ -450,7 +525,12 @@ void winScreen(Player &player, Game &game, Button &rbutton,Button &ebutton, sf::
 
     }
 }
-
+/**
+ * @brief walking animation between levels 
+ * 
+ * @param level 
+ * @param game 
+ */
 void interlude(Level &level, Game &game)
 {
     sf::Clock animateTimer;

@@ -1,3 +1,13 @@
+/**
+ * @file chris.cpp
+ * @author Chris
+ * @brief main file for compiling
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <cstdlib>

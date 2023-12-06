@@ -1,3 +1,13 @@
+/**
+ * @file player.h
+ * @author chris/david
+ * @brief player header class file
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <SFML/Graphics.hpp>

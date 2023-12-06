@@ -1,3 +1,13 @@
+/**
+ * @file game.h
+ * @author chris    
+ * @brief game class header file
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef GAME_H
 #define GAME_H
 

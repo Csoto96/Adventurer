@@ -1,3 +1,13 @@
+/**
+ * @file button.h
+ * @author David/chris
+ * @brief button header class
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef BUTTON_H
 #define BUTTON_H
 #include <SFML/Graphics.hpp>

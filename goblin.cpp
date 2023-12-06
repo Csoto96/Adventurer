@@ -1,5 +1,18 @@
+/**
+ * @file goblin.cpp
+ * @author chris/david
+ * @brief goblin class functions
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "goblin.h"
-
+/**
+ * @brief Construct a new Goblin:: Goblin object
+ * 
+ */
 Goblin::Goblin()
 {
     srand((unsigned) time(NULL));
@@ -22,12 +35,21 @@ Goblin::Goblin()
     gob.setPosition(750,275);
     gob.setScale({-3,3});
 }
-
+/**
+ * @brief rolls to hit using inheritance from enemy and returns int
+ * 
+ * @return int 
+ */
 int Goblin::eAttack()
 {
     int store = Enemy::eAttack();
     return store;
 }
+/**
+ * @brief determines what the goblin will do on its turn randomly 1 means attack, 2 means block, 3 means special
+ * 
+ * @return int 
+ */
 int Goblin::makeDecision()
 {
     int turn = 1 + (rand() % 3);
@@ -46,13 +68,20 @@ int Goblin::makeDecision()
     return 1;
 
 }
-
+/**
+ * @brief super attack rolls to hit minimum of 3
+ * 
+ * @return int 
+ */
 int Goblin::superAtt()
 {
     int toHit = 3 + (rand() % 20);
     return toHit;
 }
-
+/**
+ * @brief checks goblin health to determine its panic mode (turns on special attack)
+ * 
+ */
 void Goblin::hpCheck()
 {
     if(hp <= 20)
@@ -64,7 +93,10 @@ void Goblin::hpCheck()
         isHurt = false;
     }
 }
-
+/**
+ * @brief resets block to false if true so block isnt always on
+ * 
+ */
 void Goblin::blockCheck()
 {
     if(blocking == true)
@@ -72,6 +104,10 @@ void Goblin::blockCheck()
         blocking = false;
     }
 }
+/**
+ * @brief was gunna be animation updater
+ * 
+ */
 void Goblin::update()
 {
     

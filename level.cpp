@@ -1,11 +1,28 @@
+/**
+ * @file level.cpp
+ * @author noah
+ * @brief level class functions
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "level.h"
-
+/**
+ * @brief Construct a new Level:: Level object
+ * 
+ */
 Level::Level() {
     // Load the level
 
 
 };
-
+/**
+ * @brief loads textures and sets up background sprites
+ * 
+ * @param window 
+ */
 void Level::loadLevel(sf::RenderWindow &window) {
     // Load the background parallax background files 1 through 4
     if (!background1.loadFromFile("Game Assets/Level Sprites/background1.png")) {
@@ -105,7 +122,11 @@ void Level::loadLevel(sf::RenderWindow &window) {
     
 
 };
-
+/**
+ * @brief draws all sprites to window and sets scrolling speed of background
+ * 
+ * @param window 
+ */
 void Level::drawLevel(sf::RenderWindow &window) {
 
     // Draw the background sprites to the window
@@ -152,7 +173,11 @@ void Level::drawLevel(sf::RenderWindow &window) {
 }
 
 };
-
+/**
+ * @brief animates player for walking through level
+ * 
+ * @param window 
+ */
 void Level::animatePlayer(sf::RenderWindow &window) {
     //cordnation of the player sprite in the sprite sheet
     //44, 18, 50, 50

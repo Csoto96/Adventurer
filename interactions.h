@@ -1,3 +1,13 @@
+/**
+ * @file interactions.h
+ * @author chris/david
+ * @brief function protos for interactions cpp
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef INTERACTIONS_H
 #define INTERACTIONS_H
 #include <SFML/Graphics.hpp>

@@ -1,3 +1,13 @@
+/**
+ * @file goblin.h
+ * @author chris/david
+ * @brief goblin header file
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef GOBLIN_H
 #define GOBLIN_H
 #include "enemy.h"

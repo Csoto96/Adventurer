@@ -1,3 +1,13 @@
+/**
+ * @file enemy.h
+ * @author chris
+ * @brief enemy header clas file
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef ENEMY_H
 #define ENEMY_H
 #include <SFML/Graphics.hpp>

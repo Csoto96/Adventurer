@@ -1,3 +1,13 @@
+/**
+ * @file button.cpp
+ * @author david/chris
+ * @brief button functions file
+ * @version 0.1
+ * @date 2023-12-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "button.h"
 /**
  * @brief Construct a new Button:: Button object
